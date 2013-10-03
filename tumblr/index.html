@@ -1,0 +1,769 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android Prototype - 3.0</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+ 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<style type="text/css">
+html, body {
+    margin:0;
+    padding:0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:12px;}
+    
+#button-menu {
+    position:relative;
+    top:135px;
+    left:160px;}
+    
+.content {
+    display:none;}
+    
+a:link, a:hover, a:visited, a:active {
+    text-decoration:none;}
+    
+#menu-screen {
+    padding:20px;
+    background-color:#333333;
+    display:none;
+    width:321px;
+    height:481px;}
+    
+#cell-center {
+    float:left;
+    height:50%;
+    margin-bottom:-360px;}
+    
+#phone-shell {
+    width:389px;
+    height:719px;
+    margin:0px auto;
+    background-image:url(images/phone-frame.png);}
+
+#phone-inside {
+    cursor:move;
+    width:321px;
+    height:481px;
+    overflow:hidden;
+    position:relative;
+    top:119px;
+    left:36px;
+    background-color:#2c4965;}
+    
+#screen-one {
+    z-index:55;
+    width:100%;
+    height:100%;
+    background-image:url(images/jean-bg.jpg);
+    background-repeat:no-repeat;}   
+    
+#screen-two, #content-ntext, #content-nphoto, #content-nquote, #content-nlink, #content-nchat, #content-naudio, #content-nvideo {
+    display:none;}
+    
+#logo {
+    margin:70px 0px 0px 50px;}
+    
+#login-form {
+    width:321px;
+    margin-top:140px;}
+    
+#login-form input {
+    border:0;
+    background:none;
+    background-image:url(images/input1.png);
+    width:228px;
+    height:25px;
+    padding:10px;
+    margin:0px 35px;
+    font-size:20px;}
+    
+#login-form input {
+    border:0;
+    background:none;
+    background-image:url(images/input1.png);
+    width:228px;
+    height:25px;
+    padding:10px;
+    margin:0px 35px;
+    font-size:20px;}
+    
+#login-submit {
+    background:none!important;
+    width:248px!important;
+    height:44px!important;
+    padding:0px!important;}
+    
+#bottom-bar {
+    width:321px;
+    height:71px;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:51;
+    margin-top:410px;
+    background-image:url(images/bottom-bg.png);
+    background-repeat:repeat-x;}
+    
+#bottom-bar-navigation {
+    list-style:none;
+    margin:0px;
+    padding:0px;}
+    
+#bottom-bar-navigation li {
+    margin:12px 0px 0px 0px;
+    height:59px;
+    text-align:center;
+    float:left;}
+    
+#button-new {
+    margin-left:5px!important;}
+    
+#button-info {
+    margin-left:2px!important;}
+    
+#button-logout {
+    margin-left:5px!important;}
+    
+#top-bar {
+    z-index:50;
+    width:311px;
+    height:61px;
+    padding:10px 5px 10px 5px;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    background-image:url(images/top-bg.png);
+    background-repeat:repeat-x;}    
+    
+#top-bar-username {
+    font-size:14px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin:8px 0px 2px 60px;
+    color:#a0a8b1;}
+    
+#top-bar-icon {
+    z-index:100;
+    width:52px;
+    height:52px;
+    float:left;
+    margin-right:5px;
+    background-color:#000000;
+    -moz-border-radius: 15px;
+    border-radius: 15px;}
+    
+#top-bar-subnav {
+    list-style:none;
+    margin:0px;
+    padding:0px;}
+    
+#top-bar-subnav li {
+    margin:0px 0px 0px 5px;
+    width:78px;
+    background-image:url(images/top-subnav-bg.png);
+    height:24px;
+    text-align:center;
+    line-height:24px;
+    float:left;
+    text-transform:uppercase;
+    font-family:Arial, Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:11px;
+    color:#2d3c45;}
+    
+.active {
+    color:#FFFFFF!important;
+    text-shadow:1px 1px 1px #000000;}
+    
+.content {
+    width:321px;
+    height:481px;
+    overflow:hidden;
+    z-index:1;
+    padding:78px 0px 71px 0px;}
+    
+#content-dash {
+    width:321px;
+    overflow:hidden;}
+    
+.post-box {
+    -moz-box-shadow: 0px 0px 10px #1d3144;
+    box-shadow: 0px 0px 10px #1d3144;
+    width:300px;
+    margin:0px auto 30px auto;
+    background-color:#FFFFFF;
+    -moz-border-radius: 15px;
+    border-radius: 15px;}
+
+.post-header {
+    font-size:10px;
+    color:#777777;
+    padding:5px 5px 0px 5px;
+    height:50px;
+    background-color:#c3ccd4;
+    -moz-border-top-right-radius: 15px;
+    -moz-border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;}
+    
+h2 {
+    margin:0px;
+    padding:0px 5px;
+    font-size:39px;
+    line-height:50px;
+    text-transform:uppercase;
+    color:#2b4866;}
+    
+h3 {
+    margin: 0px 0px 5px; 0px
+    padding:0px;
+    font-size:20px;}
+    
+.post-icon {
+    width:48px;
+    height:48px;
+    float:left;
+    position:relative;
+    z-index:100;
+    margin:2px 5px 0px 2px;
+    background-color:#000000;
+    -moz-border-radius: 10px;
+    border-radius: 10px;}
+    
+.post-username {
+    text-transform:uppercase;
+    font-weight:bold;
+    font-size:14px;
+    margin:15px 0px -3px 0px;
+    color:#2b4866;}
+    
+.post-header-image {
+    position:relative;
+    top:-10px;}
+    
+.post-content {
+    padding:0px 10px 10px 10px;}
+    
+.post-icons {
+    text-align:right;
+    padding-top:10px;
+    line-height:8px;
+    font-size:11px;
+    color:#AAAAAA;
+    vertical-align:text-top;}
+    
+.post-icons img {
+    padding-left:10px;}
+    
+.new-input {
+    width:100%;}
+    
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#menu-screen").hide;
+    $("#screen-two").hide;
+    $("#content-two").hide;
+    var username = "";
+    var currentScreen = "#content-one";
+    var textTitle = "";
+    var textValue = "";
+    var newPost = "";
+    
+    
+$("#login-submit").click(function () {
+    username = $("#login-username").val();
+    var password = $("#login-password").val();
+    if (username != "" && password != "") {
+      $("#screen-one").hide("slide", { direction: "left" }, 200);
+      $("#screen-two").show("slide", { direction: "right" }, 400);
+      $("#content-dash").show("slide", { direction: "right" }, 400);
+      currentScreen = "#content-dash";
+
+     $('#login-username').val("");
+     $('#login-password').val("");
+
+      $("#top-bar-username").html(username);
+    } else {
+        alert("Please enter a username and a password.");
+    };
+});
+
+$("#button-reload").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-dash").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-dash";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-reload.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#button-new").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-new").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-new";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-dashboard.png");
+    $("#button-new-img").attr("src","images/button-new-on.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#button-info").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-info").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-info";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-dashboard.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info-on.png");
+});
+
+$("#button-logout").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#screen-two").hide("slide", { direction: "left" }, 200);
+    $("#screen-one").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-dash";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-reload.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#button-menu").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 100);
+    $("#screen-two").hide("slide", { direction: "left" }, 100);
+    $("#screen-one").hide("slide", { direction: "left" }, 100);
+    $("#menu-screen").show("slide", { direction: "right" }, 200);
+    currentScreen = "#menu-screen";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-reload.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#icon").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#screen-one").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-dash";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-reload.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#button-messages").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-messages").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-messages";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    $("#button-messages").addClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-dashboard.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#button-drafts").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-drafts").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-drafts";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    $("#button-drafts").addClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-dashboard.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#button-queue").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-queue").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-queue";
+    
+    $("#top-bar-subnav li").removeClass("active");
+    $("#button-queue").addClass("active");
+    
+    $("#button-reload-img").attr("src","images/button-dashboard.png");
+    $("#button-new-img").attr("src","images/button-new.png");
+    $("#button-info-img").attr("src","images/button-info.png");
+});
+
+$("#new-text").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-ntext").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-ntext";
+});
+
+$("#new-photo").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-nphoto").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-nphoto";
+});
+
+$("#new-quote").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-nquote").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-nquote";
+});
+
+$("#new-link").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-nlink").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-nlink";
+});
+
+$("#new-chat").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-nchat").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-nchat";
+});
+
+$("#new-audio").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-naudio").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-naudio";
+});
+
+$("#new-video").click(function () {
+    $(currentScreen).hide("slide", { direction: "left" }, 200);
+    $("#content-nvideo").show("slide", { direction: "right" }, 400);
+    currentScreen = "#content-nvideo";
+});
+
+$("#post-text").click(function () {
+    textTitle = $('#post-text-title').val();
+    textValue = $('#post-text-content').val();
+    
+    if (textTitle == "" || textValue == "") {
+        alert("Please enter a title and a comment!");
+    } else {
+        newPost = '<div class="post-box"><div class="post-header"><div class="post-icon" style="background-image:url(images/postav3.jpg);">&nbsp;</div><div class="post-username">' + username + '</div>Posted on 11-02-2012 at 5:37 PM.</div><img src="images/post-header-bg.png" class="post-header-image" /><div class="post-content"><h3>' + textTitle + '</h3>' + textValue + '<div class="post-icons">0 notes </div></div></div>';
+        $("#content-dash").prepend(newPost);
+        
+        $('#post-text-title').val("");
+        $('#post-text-content').val("");
+    
+        $(currentScreen).hide("slide", { direction: "left" }, 200);
+        $("#content-dash").show("slide", { direction: "right" }, 400);
+        currentScreen = "#content-dash";
+    
+        $("#button-reload-img").attr("src","images/button-reload.png");
+        $("#button-new-img").attr("src","images/button-new.png");
+        $("#button-info-img").attr("src","images/button-info.png");
+    }
+});
+
+
+$(".like-img").click(function () {
+    if ($(this).attr("src") == "images/post-like.gif") {
+        $(this).attr("src","images/post-like-red.gif");
+    } else {
+        $(this).attr("src","images/post-like.gif"); 
+    };
+});
+
+
+
+  });
+  </script>
+</head>
+<body>
+<div id="phone-shell">
+    <div id="phone-inside">
+        <div id="menu-screen">
+            <img src="images/icon.png" id="icon" />
+        </div>
+        
+        <div id="screen-one">
+            <img src="images/logo.png" id="logo" />
+            <div id="login-form">
+                <input type="text" name="username" id="login-username" />
+                <input type="password" name="password" id="login-password" />
+                <input type="image" src="images/input-login.png" id="login-submit" />
+            </div>
+        </div>
+        
+        
+        <div id="screen-two">
+            <div id="top-bar">
+                <div id="top-bar-icon" style="background-image:url(images/postav3.jpg);">&nbsp;</div>
+                <div id="top-bar-username">default</div>
+                <ul id="top-bar-subnav">
+                    <li id="button-messages">Messages</li>
+                    <li id="button-drafts">Drafts</li>
+                    <li id="button-queue">Queue</li>
+                </ul>
+            </div>
+            <div id="bottom-bar">
+                <ul id="bottom-bar-navigation">
+                    <li id="button-reload"><img src="images/button-reload.png" border="0" id="button-reload-img" /></li>
+                    <li id="button-new"><img src="images/button-new.png" border="0" id="button-new-img" /></li>
+                    <li id="button-info"><img src="images/button-info.png" border="0" id="button-info-img" /></li>
+                    <li id="button-logout"><img src="images/button-logout.png" border="0" /></li>
+                </ul>
+            </div>
+            <div class="content" id="content-dash">  
+                <div class="post-box">
+                    <div class="post-header">
+                        <div class="post-icon" style="background-image:url(images/postav1.jpg);">&nbsp;</div>
+                        <div class="post-username">CatFancy</div>
+                        Posted on 11-02-2012 at 5:32 PM.
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        <img src="images/postim3.jpg" />
+                        <div class="post-icons">
+                            3277 notes <img src="images/post-reblog.gif" /> <img src="images/post-like.gif" class="like-img" /> 
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="post-box">
+                    <div class="post-header">
+                        <div class="post-icon" style="background-image:url(images/postav2.jpg);">&nbsp;</div>
+                        <div class="post-username">kklx22</div>
+                        Posted on 11-02-2012 at 5:37 PM.
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        <img src="images/postim2.jpg" />
+                        <div class="post-icons">
+                            283 notes <img src="images/post-reblog.gif" /> <img src="images/post-like.gif" class="like-img" /> 
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="post-box">
+                    <div class="post-header">
+                        <div class="post-icon" style="background-image:url(images/postav1.jpg);">&nbsp;</div>
+                        <div class="post-username">CatFancy</div>
+                        Posted on 11-02-2012 at 5:38 PM.
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        <img src="images/postim1.jpg" />
+                        <div class="post-icons">
+                            1276 notes <img src="images/post-reblog.gif" /> <img src="images/post-like.gif" class="like-img" /> 
+                        </div>
+                    </div>
+                </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            
+            
+            <div class="content" id="content-new">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Post</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        <p align="center">
+                            <img src="images/new-text.gif" id="new-text" /> <img src="images/new-seperator.gif" />
+                            <img src="images/new-photo.gif" id="new-photo" /> <img src="images/new-seperator.gif" />
+                            <img src="images/new-quote.gif" id="new-quote" /> <img src="images/new-seperator.gif" />
+                            <img src="images/new-link.gif" id="new-link" /> 
+                            <img src="images/new-chat.gif" id="new-chat" /> <img src="images/new-seperator.gif" />
+                            <img src="images/new-audio.gif" id="new-audio" /> <img src="images/new-seperator.gif" />
+                            <img src="images/new-video.gif" id="new-video" /> 
+                    </div>
+                </div>
+            </div>            
+ 
+ 
+ 
+ 
+ 
+            <div class="content" id="content-ntext">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Text</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Title:<br />
+                        <input type="text" class="new-input" id="post-text-title" /><br />
+                        Content:<br />
+                        <textarea class="new-input" rows="7" id="post-text-content"></textarea><br />
+                        <p align="center"><input type="submit" name="post-text" value="Submit Post" id="post-text" /></p>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div class="content" id="content-nphoto">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Photo</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        <input type="file" class="new-input" /><br />
+                        Caption (optional)<br />
+                        <textarea class="new-input" rows="7"></textarea><br />
+                        <p align="center">Sorry, photo posts are not available in this demo.</p>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div class="content" id="content-nquote">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Quote</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Quote:<br />
+                        <textarea class="new-input" rows="5"></textarea><br />
+                        Source:<br />
+                        <textarea class="new-input" rows="5"></textarea><br />
+                        <p align="center">Sorry, quote posts are not available in this demo.</p>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div class="content" id="content-nlink">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Link</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Title:<br />
+                        <input type="text" class="new-input" /><br />
+                        URL:<br />
+                        <input type="text" class="new-input" /><br />
+                        <p align="center">Sorry, link posts are not available in this demo.</p>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div class="content" id="content-nchat">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Chat</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Title:<br />
+                        <input type="text" class="new-input" /><br />
+                        Dialogue:<br />
+                        <textarea class="new-input" rows="7"></textarea><br />
+                        <p align="center">Sorry, chat posts are not available in this demo.</p>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div class="content" id="content-naudio">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Audio</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Upload:<br />
+                        <input type="file" class="new-input" /><br />
+                        <p align="center">Sorry, audio posts are not available in this demo.</p>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div class="content" id="content-nvideo">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <h2>New Video</h2>
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Upload:<br />
+                        <input type="file" class="new-input" /><br />
+                        <p align="center">Sorry, video posts are not available in this demo.</p>
+                    </div>
+                </div>
+            </div>  
+ 
+ 
+            <div class="content" id="content-messages">    
+                <div class="post-box">
+                    <div class="post-header">
+                        <div class="post-icon" style="background-image:url(images/postav1.jpg);">&nbsp;</div>
+                        <div class="post-username">CatFancy asked</div>
+                        on 11-02-2012 at 5:32 PM.
+                    </div>
+                    <img src="images/post-header-bg.png" class="post-header-image" />
+                    <div class="post-content">
+                        Like a cat post of mine!
+                    </div>
+                </div> 
+            </div>
+            
+            
+            <div class="content" id="content-drafts">   
+                <div class="post-box"> 
+                    <div class="post-content"><br />
+                        You have no drafts saved.
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="content" id="content-queue">  
+                <div class="post-box">  
+                    <div class="post-content"><br />
+                        0 items in queue.
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="content" id="content-info">    
+                <br /><br /><br /><br /><br /><br />
+                <img src="images/helppage.jpg" />
+            </div>  
+ 
+        </div>
+        
+        
+        
+    </div>
+    <img src="images/phone-button.jpg" id="button-menu" />
+</div>
+
+<script src="js/jquery.overscroll.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#content-dash").overscroll({
+                showThumbs: false,
+                direction: 'vertical'
+            })
+});
+</script>
+</body>
+</html>

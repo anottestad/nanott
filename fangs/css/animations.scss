@@ -1,0 +1,312 @@
+$frame_transition_duration: 2000;
+$slideup_duration: 700;
+$animation_duration: 100;
+$glow_duration: 1000;
+
+$frame0_height: 0;
+$frame0_end: $frame0_height + $frame_transition_duration;
+
+$frame1_height: 1800;
+$frame1_start: $frame1_height + $frame0_end;
+$frame1_end: $frame1_start + $frame_transition_duration;
+$content_start: $frame0_end - 1000;
+$content_end: 1000 + $content_start;
+$smile_start: 50 + $frame0_end;
+$smile_end: $smile_start + $slideup_duration;
+$mouth_start: 100 + $smile_end;
+$mouth_2: $mouth_start + $animation_duration;
+$mouth_3: $mouth_2 + $animation_duration;
+$mouth_4: $mouth_3 + $animation_duration;
+
+$frame2_height: 2400;
+$frame2_start: $frame2_height + $frame1_end;
+$frame2_end: $frame2_start + $frame_transition_duration;
+$vampire_start: $frame1_height;
+$vampire_end: 1500 + $vampire_start;
+$vampire_bite_start: 300 + $vampire_end;
+$vampire_bite_middle: 1500 + $vampire_bite_start;
+$vampire_bite_end: 400 + $vampire_bite_middle;
+
+$frame3_height: 6400;
+$frame3_start: $frame3_height + $frame2_end;
+$frame3_end: $frame3_start + $frame_transition_duration;
+$mansion_start: $frame2_end - $frame_transition_duration;
+$mansion_end: 3400 + $mansion_start + $frame_transition_duration + $glow_duration;
+$glow_start: $mansion_end - $glow_duration;
+$glow_end: $glow_start + $glow_duration;
+
+$frame4_height: 1800;
+$frame4_start: $frame4_height + $frame3_end;
+$frame4_end: $frame4_start + $frame_transition_duration;
+$disappear_start: 200 + $frame3_end;
+$disappear_end: 800 + $disappear_start;
+
+$run_start: $frame4_end - $frame_transition_duration;
+$run_end: 2000 + $run_start;
+$coming_soon_start: $run_end;
+$coming_soon_end: 600 + $coming_soon_start;
+$learn_more_start: $coming_soon_end;
+$learn_more_end: 600 + $learn_more_start;
+
+
+#frame0 {
+    -skrollr-animation-name:frame0;
+}
+
+#frame1 {
+    -skrollr-animation-name:frame1;
+}
+#content {
+    -skrollr-animation-name:content;
+}
+#smile {
+    -skrollr-animation-name:smile;
+}
+#mouth {
+    -skrollr-animation-name:mouth;
+}
+
+#frame2 {
+    -skrollr-animation-name:frame2;
+}
+#vampire {
+    -skrollr-animation-name:vampire;
+}
+
+#frame3 {
+    -skrollr-animation-name:frame3;
+}
+#mansion {
+    -skrollr-animation-name:mansion;
+}
+#glow {
+    -skrollr-animation-name:glow;
+}
+#glow_text {
+    -skrollr-animation-name:glow_text;
+}
+#glow_text .second {
+    -skrollr-animation-name:show_text;
+}
+
+#frame4 {
+    -skrollr-animation-name:frame4;
+}
+#teeth {
+    -skrollr-animation-name:teeth;
+}
+
+#run {
+    -skrollr-animation-name:run;
+}
+#frame5 .second {
+    -skrollr-animation-name:coming_soon;
+}
+#learn {
+    -skrollr-animation-name:learn_more;
+}
+
+@-skrollr-keyframes frame0 {
+    #{$frame0_height} {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    #{$frame0_end} {
+        width: 0%;
+        margin-left: -100%;
+    }
+}
+
+@-skrollr-keyframes frame1 {
+    #{$frame1_start} {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    #{$frame1_end} {
+        width: 0%;
+        margin-left: -100%;
+    }
+}
+
+@-skrollr-keyframes content {
+    #{$content_start} {
+        opacity: 0;
+    }
+
+    #{$content_end} {
+        opacity: 1;
+    }
+}
+
+@-skrollr-keyframes smile {
+    #{$smile_start} {
+        bottom: -100%;
+    }
+
+    #{$smile_end} {
+        bottom: 0%;
+    }
+}
+
+@-skrollr-keyframes mouth {
+    #{$mouth_start} {
+        background-image: url(images/smile-2a.jpg);
+    }
+
+    #{$mouth_2} {
+        background-image: url(images/smile-2b.jpg);
+    }
+
+    #{$mouth_3} {
+        background-image: url(images/smile-2c.jpg);
+    }
+
+    #{$mouth_4} {
+        background-image: url(images/smile-2d.jpg);
+    }
+}
+
+
+
+@-skrollr-keyframes frame2 {
+    #{$frame2_start} {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    #{$frame2_end} {
+        width: 0%;
+        margin-left: -100%;
+    }
+}
+
+@-skrollr-keyframes vampire {
+    #{$vampire_start} {
+        bottom: -100%;
+    }
+
+    #{$vampire_end} {
+        bottom: -2%;
+    }
+
+    #{$vampire_bite_start} {
+        z-index: 3;
+        bottom: -2%;
+    }
+
+    #{$vampire_bite_middle} {
+        z-index: 4;
+        bottom: .5%;
+    }
+
+    #{$vampire_bite_end} {
+        bottom: 0%;
+    }
+}
+
+
+
+@-skrollr-keyframes frame3 {
+    #{$frame3_start} {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    #{$frame3_end} {
+        width: 0%;
+        margin-left: -100%;
+    }
+}
+@-skrollr-keyframes mansion {
+    #{$mansion_start} {
+        top: 0%;
+    }
+
+    #{$mansion_end} {
+        top: -100%;
+    }
+}
+@-skrollr-keyframes glow {
+    #{$glow_start} {
+        opacity: 0;
+    }
+
+    #{$glow_end} {
+        opacity: 1;
+    }
+}
+@-skrollr-keyframes glow_text {
+    #{$glow_start} {
+        color: rgb(255, 255, 255);
+    }
+
+    #{$glow_end} {
+        color: rgb(0, 0, 0);
+    }
+}
+@-skrollr-keyframes show_text {
+    #{$glow_start} {
+        opacity: 0;
+    }
+
+    #{$glow_end} {
+        opacity: 1;
+    }
+}
+
+
+
+@-skrollr-keyframes frame4 {
+    #{$frame4_start} {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    #{$frame4_end} {
+        width: 0%;
+        margin-left: -100%;
+    }
+}
+@-skrollr-keyframes teeth {
+    #{$disappear_start} {
+        opacity: 1;
+    }
+
+    #{$disappear_end} {
+        opacity: 0;
+    }
+}
+
+
+
+@-skrollr-keyframes run {
+    #{$run_start} {
+        top: 55%;
+        right: 0%;
+    }
+
+    #{$run_end} {
+        top: 45%;
+        right: 25%;
+    }
+}
+@-skrollr-keyframes coming_soon {
+    #{$coming_soon_start} {
+        opacity: 0;
+    }
+
+    #{$coming_soon_end} {
+        opacity: 1;
+    }
+}
+@-skrollr-keyframes learn_more {
+    #{$learn_more_start} {
+        opacity: 0;
+    }
+
+    #{$learn_more_end} {
+        opacity: 1;
+    }
+}

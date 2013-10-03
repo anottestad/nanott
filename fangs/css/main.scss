@@ -1,0 +1,332 @@
+/* MAIN 
+=============================== */
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font: 16px Cherry Swash, Garamond, Times;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0;
+    color: #444;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+::-moz-selection {
+    background: #79e4dd;
+    color: #000;
+    text-shadow: none;
+}
+
+::selection {
+    background: #79e4dd;
+    color: #000;
+    text-shadow: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.alignright {
+    text-align: right;
+}
+
+.skrollable {
+    /*
+     * First-level skrollables are positioned relative to window
+     */
+    position:fixed;
+
+    /*
+     * Skrollables by default have a z-index of 100 in order to make it easy to position elements in front/back without changing each skrollable
+     */
+    z-index:100;
+}
+
+.skrollr-mobile .skrollable {
+    position:absolute;
+}
+
+.skrollable .skrollable {
+    /*
+     * Second-level skrollables are positioned relative their parent skrollable
+     */
+    position:absolute;
+}
+
+.skrollable .skrollable .skrollable {
+    /*
+     * Third-level (and below) skrollables are positioned static
+     */
+    position:static;
+}
+
+.indent {
+  padding-left: 100px;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.text {
+    font-size: 2em;
+    text-align: center;
+    position: absolute;
+    white-space: nowrap;
+
+    .second {
+        opacity: 0;
+    }
+}
+
+.next {
+    opacity: 0;
+}
+
+#frame0 {
+    background-color: #000;
+    z-index: 700;
+
+    .text {
+        width: 100%;
+        top: 30%;
+        text-align: center;
+        color: #fff;
+
+        .small {
+            font-size: .8em;
+        }
+    }
+}
+
+#frame1 {
+    background-color: #fff;
+    z-index: 600;
+
+    .text {
+        width: 50%;
+        top: 30%;
+        right: 10%;
+    }
+
+    #smile {
+        margin-left: 5%;
+        width: 30%;
+        bottom: -100%;
+
+        .base {
+            width: 100%;
+            max-width: 648px;
+        }
+
+        #mouth {
+            top: 16.29434954007884%;
+            left: 45.06172839506173%;
+            width: 9.5679012345679%;
+            height: 30%;
+            position: absolute;
+            background-image: url(../images/smile-2a.jpg);
+            background-repeat: no-repeat;
+            background-size:100%;
+        }
+    }
+}
+
+#frame2 {
+    background-color: #000;
+    z-index: 500;
+
+    .text {
+        width: 50%;
+        top: 30%;
+        left: 0%;
+        color: #fff;
+        z-index: 5;
+    }
+
+    #bite {
+        right: 0%;
+        width: 40%;
+        bottom: 0%;
+        overflow: hidden;
+
+        .base {
+            width: 100%;
+            max-width: 900px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        #woman {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+        }
+
+        #vampire {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+    }
+}
+
+#frame3 {
+    background: #490000 url(../images/mansion-bg.jpg);
+    z-index: 400;
+
+    .text {
+        width: 100%;
+        top: 30%;
+        right: 0%;
+        color: rgb(255, 255, 255);
+        position: relative;
+        z-index: 10;
+    }
+
+    #mansion {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    #glow {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        position: absolute;
+        z-index: 5;
+    }
+}
+
+#frame4 {
+    background: #000;
+    z-index: 300;
+
+    .text {
+        top: 30%;
+        right: 10%;
+        color: rgb(255, 255, 255);
+    }
+
+    #fangs {
+        left: 0%;
+        bottom: 0%;
+        width: 40%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+
+        .base {
+            width: 100%;
+            max-width: 688px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        #teeth {
+            width: 100%;
+            max-width: 688px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 3;
+            opacity: 1;
+        }
+    }
+}
+
+#frame5 {
+    background: #fff;
+    z-index: 200;
+
+    .text {
+        width: 100%;
+        top: 30%;
+        text-align: center;
+
+        .small {
+            width: 100%;
+            opacity: 0;
+            font-size: .8em;
+            text-align: center;
+        }
+    }
+
+    a {
+        color: #444;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    #search {
+        width: 60%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        position: relative;
+
+        .base {
+            width: 30%;
+            max-width: 210px;
+            position: relative;
+            left: 20%;
+            top: 10%;
+        }
+
+        #run {
+            width: 50%;
+            max-width: 618px;
+            position: absolute;
+            top: 50%;
+            right: 0%;
+        }
+    }
+
+    #learn {
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+
+        #information {
+            font-family: Inika;
+            width: 350px;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+            color: #888;
+            display: none;
+            font-size: .9em;
+
+            #info-close {
+                font-size: .8em;
+            }
+        }
+    }
+
+}

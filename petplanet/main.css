@@ -1,0 +1,77 @@
+body {
+	padding:0;
+	margin:0;
+	background-image:url(images/bg.jpg);
+	color:#252c3b;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;}
+	
+h1 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	color:#5f8497;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	text-transform:uppercae;
+	text-shadow:0px 0px 20px #041e31;}
+	
+#top {
+	background-image:url(images/bg-top.jpg);
+	background-position:50% 0%;
+	width:100%;
+	height:319px;}
+	
+#header {
+	margin:0px auto 0px auto;
+	background-image:url(images/banner.jpg);
+	width:928px;
+	height:319px;}
+	
+#navigation {
+	padding:243px 0px 0px 20px;
+	margin:0px 0px 0px 0px;
+	list-style:none;}
+	
+#navigation li {
+	width:102px;
+	float:left;
+	margin:0px 15px 0px 15px;}
+	
+#navigation li:hover {
+	margin:-4px 15px 0px 15px;}
+	
+#middle {
+	background-image:url(images/bg-middle.jpg);
+	background-repeat:repeat-x;
+	padding:0px 0px 0px 0px;}
+	
+#wrapper {
+	width:1100px;
+	margin:0px auto 0px auto;
+	padding:5px 0px 0px 0px;}
+	
+.section {
+	width:73%;
+	margin:30px auto 0px auto;
+	padding:30px;
+	background-color:#fff;
+	-moz-box-shadow: 0px 0px 45px #041e31;
+	-webkit-box-shadow: 0px 0px 45px #041e31;
+	box-shadow: 0px 0px 45px #041e31;
+	background: rgb(229,229,229); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,229,229,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	}
+
+.section h1 {
+	font-size: 36px;
+	font-weight: 400;
+	margin:0;
+	padding:3px 0px;
+	text-shadow: -1px -1px 0px rgba(0,0,0, 0);
+	color: #3e83c5;}

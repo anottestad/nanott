@@ -1,0 +1,198 @@
+#frame0 {
+  -skrollr-animation-name: frame0; }
+
+#frame1 {
+  -skrollr-animation-name: frame1; }
+
+#content {
+  -skrollr-animation-name: content; }
+
+#smile {
+  -skrollr-animation-name: smile; }
+
+#mouth {
+  -skrollr-animation-name: mouth; }
+
+#frame2 {
+  -skrollr-animation-name: frame2; }
+
+#vampire {
+  -skrollr-animation-name: vampire; }
+
+#frame3 {
+  -skrollr-animation-name: frame3; }
+
+#mansion {
+  -skrollr-animation-name: mansion; }
+
+#glow {
+  -skrollr-animation-name: glow; }
+
+#glow_text {
+  -skrollr-animation-name: glow_text; }
+
+#glow_text .second {
+  -skrollr-animation-name: show_text; }
+
+#frame4 {
+  -skrollr-animation-name: frame4; }
+
+#teeth {
+  -skrollr-animation-name: teeth; }
+
+#run {
+  -skrollr-animation-name: run; }
+
+#frame5 .second {
+  -skrollr-animation-name: coming_soon; }
+
+#learn {
+  -skrollr-animation-name: learn_more; }
+
+@-skrollr-keyframes frame0 {
+  0 {
+    width: 100%;
+    margin-left: 0%; }
+
+  2000 {
+    width: 0%;
+    margin-left: -100%; } }
+
+@-skrollr-keyframes frame1 {
+  3800 {
+    width: 100%;
+    margin-left: 0%; }
+
+  5800 {
+    width: 0%;
+    margin-left: -100%; } }
+
+@-skrollr-keyframes content {
+  1000 {
+    opacity: 0; }
+
+  2000 {
+    opacity: 1; } }
+
+@-skrollr-keyframes smile {
+  2050 {
+    bottom: -100%; }
+
+  2750 {
+    bottom: 0%; } }
+
+@-skrollr-keyframes mouth {
+  2850 {
+    background-image: url(images/smile-2a.jpg); }
+
+  2950 {
+    background-image: url(images/smile-2b.jpg); }
+
+  3050 {
+    background-image: url(images/smile-2c.jpg); }
+
+  3150 {
+    background-image: url(images/smile-2d.jpg); } }
+
+@-skrollr-keyframes frame2 {
+  8200 {
+    width: 100%;
+    margin-left: 0%; }
+
+  10200 {
+    width: 0%;
+    margin-left: -100%; } }
+
+@-skrollr-keyframes vampire {
+  1800 {
+    bottom: -100%; }
+
+  3300 {
+    bottom: -2%; }
+
+  3600 {
+    z-index: 3;
+    bottom: -2%; }
+
+  5100 {
+    z-index: 4;
+    bottom: .5%; }
+
+  5500 {
+    bottom: 0%; } }
+
+@-skrollr-keyframes frame3 {
+  16600 {
+    width: 100%;
+    margin-left: 0%; }
+
+  18600 {
+    width: 0%;
+    margin-left: -100%; } }
+
+@-skrollr-keyframes mansion {
+  8200 {
+    top: 0%; }
+
+  14600 {
+    top: -100%; } }
+
+@-skrollr-keyframes glow {
+  13600 {
+    opacity: 0; }
+
+  14600 {
+    opacity: 1; } }
+
+@-skrollr-keyframes glow_text {
+  13600 {
+    color: white; }
+
+  14600 {
+    color: black; } }
+
+@-skrollr-keyframes show_text {
+  13600 {
+    opacity: 0; }
+
+  14600 {
+    opacity: 1; } }
+
+@-skrollr-keyframes frame4 {
+  20400 {
+    width: 100%;
+    margin-left: 0%; }
+
+  22400 {
+    width: 0%;
+    margin-left: -100%; } }
+
+@-skrollr-keyframes teeth {
+  18800 {
+    opacity: 1; }
+
+  19600 {
+    opacity: 0; } }
+
+@-skrollr-keyframes run {
+  20400 {
+    top: 55%;
+    right: 0%; }
+
+  22400 {
+    top: 45%;
+    right: 25%; } }
+
+@-skrollr-keyframes coming_soon {
+  22400 {
+    opacity: 0; }
+
+  23000 {
+    opacity: 1; } }
+
+@-skrollr-keyframes learn_more {
+  23000 {
+    opacity: 0; }
+
+  23600 {
+    opacity: 1; } }
